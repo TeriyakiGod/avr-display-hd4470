@@ -1,6 +1,7 @@
 # avr-counter
 
 ## Requirements
+- cmake
 - avr-libc
 - avr-gcc
 
