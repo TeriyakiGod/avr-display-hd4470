@@ -11,6 +11,9 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mmcu=${MMCU} -DF_CPU=${F_CPU}")
 
 set(CMAKE_SHARED_LIBRARY_LINK_C_FLAGS "")
 
-add_executable(avr-counter main.c)
+include_directories(${CMAKE_SOURCE_DIR}/include)
+file(GLOB SOURCES ${CMAKE_SOURCE_DIR}/src/*.c)
+
+add_executable(avr-counter ${SOURCES})
 
 set_target_properties(avr-counter PROPERTIES ENABLE_EXPORTS OFF)
