@@ -19,9 +19,9 @@ int get_digit(int number, int index)
 int main(void)
 {
     DDRA = 0xFF; // Port A Data Direction Register
-    DDRB = 0x07; // Port C Data Direction Register - set the upper 3 bits as input for the buttons
+    DDRB = 0x07; // Port B Data Direction Register
     PORTA = 0;   // Port A Data Register
-    PORTB = 0;   // Port C Data Register
+    PORTB = 0;   // Port B Data Register
 
     int count = 9100;
     int paused = 0;
@@ -33,7 +33,7 @@ int main(void)
             for (int i = 0; i < 4; i++)
             {
                 int digit = get_digit(count, 3 - i);
-                PORTC = digit_select[i];    // Select digit
+                PORTB = digit_select[i];    // Select digit
                 PORTA = segment_map[digit]; // Display digit
                 _delay_ms(50);              // Delay for multiplexing
             }
